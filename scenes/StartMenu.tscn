@@ -1,8 +1,89 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://data/fonts/Quantico/quantico.tres" type="DynamicFont" id=1]
+[ext_resource path="res://data/fonts/Quantico/Quantico-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/StartMenu.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=2]
+resource_name = "BorderChange"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_fonts/normal_font:outline_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0627451, 0.705882, 0.45098, 1 ), Color( 0.223529, 0, 0.623529, 1 ), Color( 0.0627451, 0.705882, 0.45098, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.670588, 0.615686, 0.658824, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_right = -100.0
+color = Color( 0.666667, 0.666667, 0.666667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -152.0
+margin_top = -99.0
+margin_right = 152.0
+margin_bottom = -49.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[wave amp=75 freq=4]TIDDY TRUK GAMES[/wave]"
+text = "TIDDY TRUK GAMES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
+autoplay = "BorderChange"
+anims/BorderChange = SubResource( 2 )
+
+[node name="CreatedByLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -147.0
+margin_right = 90.0
+margin_bottom = -100.0
+custom_fonts/font = SubResource( 1 )
+text = "CREATED BY"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
