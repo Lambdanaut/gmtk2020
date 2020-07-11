@@ -4,7 +4,7 @@
 [ext_resource path="res://data/fonts/Quantico/Quantico-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/StartMenu.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "BorderChange"
 length = 2.0
 loop = true
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ Color( 0.0627451, 0.705882, 0.45098, 1 ), Color( 0.223529, 0, 0.623529, 1 ), Color( 0.0627451, 0.705882, 0.45098, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 font_data = ExtResource( 2 )
 
@@ -70,7 +70,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
 autoplay = "BorderChange"
-anims/BorderChange = SubResource( 2 )
+anims/BorderChange = SubResource( 1 )
 
 [node name="CreatedByLabel" type="Label" parent="."]
 anchor_left = 0.5
@@ -81,7 +81,7 @@ margin_left = -90.0
 margin_top = -147.0
 margin_right = 90.0
 margin_bottom = -100.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "CREATED BY"
 align = 1
 __meta__ = {
